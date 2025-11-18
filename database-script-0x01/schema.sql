@@ -1,4 +1,4 @@
-USER TABLE
+-- USER TABLE
 CREATE TABLE User (
     user_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     first_name VARCHAR(100) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE User (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-PROPERTY TABLE
+-- PROPERTY TABLE
 CREATE TABLE Property (
     property_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     host_id UUID NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE Property (
 CREATE INDEX idx_property_host_id ON Property(host_id);
 CREATE INDEX idx_property_location ON Property(location);
 
-BOOKING TABLE
+-- BOOKING TABLE
 CREATE TABLE Booking (
     booking_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     property_id UUID NOT NULL,
@@ -44,7 +44,7 @@ CREATE INDEX idx_booking_property_id ON Booking(property_id);
 CREATE INDEX idx_booking_user_id ON Booking(user_id);
 CREATE INDEX idx_booking_status ON Booking(status);
 
-PAYMENT TABLE
+-- PAYMENT TABLE
 CREATE TABLE Payment (
     payment_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     booking_id UUID NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE Payment (
 
 CREATE INDEX idx_payment_booking_id ON Payment(booking_id);
 
-REVIEW TABLE
+-- REVIEW TABLE
 CREATE TABLE Review (
     review_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     property_id UUID NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE Review (
 CREATE INDEX idx_review_property_id ON Review(property_id);
 CREATE INDEX idx_review_user_id ON Review(user_id);
 
-MESSAGE TABLE
+-- MESSAGE TABLE
 CREATE TABLE Message (
     message_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     sender_id UUID NOT NULL,
