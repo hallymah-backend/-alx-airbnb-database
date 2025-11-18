@@ -36,6 +36,7 @@ CREATE TABLE Booking (
     total_price DECIMAL(10, 2) NOT NULL,
     status ENUM('pending', 'confirmed', 'canceled') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
     FOREIGN KEY (property_id) REFERENCES Property(property_id),
     FOREIGN KEY (user_id) REFERENCES User(user_id)
 );
